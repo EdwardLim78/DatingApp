@@ -20,7 +20,7 @@ namespace API.Controllers
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers(){
-            return = await _context.Users.ToListAsync();
+            return  await _context.Users.ToListAsync();
             
         }
 
@@ -28,7 +28,7 @@ namespace API.Controllers
         //api/users/3
         [HttpGet("{id}")]
         public async Task<ActionResult<AppUser>> GetUsers(int id){
-            return = await _context.Users.FindAsync(id);
+            return  await _context.Users.FindAsync(id);
             
         }
     }
