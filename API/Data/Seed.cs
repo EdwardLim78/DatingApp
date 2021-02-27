@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Cryptography;
 
 using System.Text.Json;
@@ -35,8 +36,8 @@ namespace API.Data
 
             foreach(var user in users) {
                 // using var hmac = new HMACSHA512();
+                user.Photos.First().IsApproved = true;
                 user.UserName = user.UserName.ToLower();
-                
                 await userManager.CreateAsync(user,"Pa$$w0rd");
                 await userManager.AddToRoleAsync(user, "Member");
                 // user.PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("Pa$$w0rd"));

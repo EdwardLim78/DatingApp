@@ -4,7 +4,7 @@ using AutoMapper;
 
 namespace API.Data
 {
-    public class UnitOfWork : Interfaces.IUnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         private readonly DataContext _context;
         private readonly IMapper _mapper;
@@ -19,6 +19,8 @@ namespace API.Data
         public IMessageRepository MessageRepository => new MessageRepository(_context,_mapper);
 
         public ILikesRepository likesRepository => new LikesRepository(_context);
+
+        public IPhotoRepository photoRepository => new PhotoRepository(_context);
 
         public async Task<bool> Complete()
         {

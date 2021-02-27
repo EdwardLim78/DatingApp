@@ -15,11 +15,13 @@ namespace API.Interfaces
 
         Task<AppUser> GetUserByIdAsync(int id);
 
-        Task<AppUser> GetUserByUserNameAsync(string username); 
+        Task<AppUser> GetUserByUserNameAsync(string username, bool isCurrentUser = false); 
 
         Task<PagedList<MemberDto>>GetMembersAsync(UserParams userParams);
 
-        Task<MemberDto> GetMemberAsync(string username);
+        Task<MemberDto> GetMemberAsync(string username, bool isCurrentUser);
+
+        Task<AppUser> GetUserByPhotoId(int photoId);
 
         Task<string>GetUserGender(string username);
         
